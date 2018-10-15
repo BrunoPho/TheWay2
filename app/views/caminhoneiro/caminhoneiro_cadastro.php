@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,16 +8,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    <title> Hello, world! </title>
+    <title> Cadestre-se caminhoneiro </title>
 </head>
 <body>
 
 <div class="container">
 
-    <h1>cadastro caminhoneiros</h1>
+    <h1> cadastro caminhoneiros </h1>
 
 
-    <form class="form-horizontal" method="POST" action="caminhoneiro.php?acao=cadastrar"><!-- Form - Inicio do formulario -->
+    <form class="form-horizontal" method="POST" action="../../controllers/caminhoneiro.php?acao=cadastrar"><!-- Form - Inicio do formulario -->
 
         <fieldset><!-- conjunto de campos -->
 
@@ -117,24 +117,19 @@
                 </div>
 
                 <!-- Botão para Home -->
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label class="col-md-4 control-label" type="botton1"></label>
                     <div class="col-md-8">
-                        <!--<a href="menuDeCadastros.html" class="btn btn-warning" role="button"> Voltar </a>-->
-                    </div>
+                        <a href="menuDeCadastros.html" class="btn btn-warning" role="button"> Voltar </a>
+                    </div>-->
                     <!-- /Botões -->
                 </div>
 
         </fieldset>
     </form> <!-- /Form - Fim do formulario -->
 
-
-
-
 </div>
 <!-- /container-->
-
-
 
 </body>
 </html>

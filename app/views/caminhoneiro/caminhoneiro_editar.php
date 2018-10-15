@@ -8,16 +8,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    <title> Hello, world! </title>
+    <title> Seus dados! </title>
 </head>
 <body>
 
 <div class="container">
 
-    <h1>cadastro caminhoneiros</h1>
+    <h1> Edite seus dados </h1>
 
-
-    <form class="form-horizontal" method="POST" action="caminhoneiro.php?acao=cadastrar"><!-- Form - Inicio do formulario -->
+<!-- Form - Inicio do formulario -->
+    <form class="form-horizontal" method="POST" action="../../controllers/caminhoneiro.php?acao=salvar_editar">
 
         <fieldset><!-- conjunto de campos -->
 
@@ -33,7 +33,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="email"></label>
                 <div class="col-md-4">
-                    <input id="email" name="email" type="email" placeholder="E-mail" class="form-control input-md" required="" title="Preencha com seu G-mail ou E-mail">
+                    <input value="<?= $caminhoneiro['email'] ?>" id="email" name="email" type="email" placeholder="E-mail" class="form-control input-md" required="" title="Preencha com seu G-mail ou E-mail">
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="telefone"></label>
                 <div class="col-md-4">
-                    <input id="telefone" name="telefone" type="tel" pattern="^\d{2}\d{4}\d{4}$" placeholder="Telefone" class="form-control input-md" required="" title="Digite seu numero de telefone (DD)XXXX-XXXX">
+                    <input value="<?= $caminhoneiro['telefone'] ?>" id="telefone" name="telefone" type="tel" pattern="^\d{2}\d{4}\d{4}$" placeholder="Telefone" class="form-control input-md" required="" title="Digite seu numero de telefone (DD)XXXX-XXXX">
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="senha"></label>
                 <div class="col-md-4">
-                    <input id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md" required="">
+                    <input value="<?= $caminhoneiro['senha'] ?>" id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md" required="">
 
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="rg"></label>
                 <div class="col-md-4">
-                    <input id="rg" name="rg" type="number" placeholder="RG" class="form-control input-md" required="">
+                    <input value="<?= $caminhoneiro['rg'] ?>" id="rg" name="rg" type="number" placeholder="RG" class="form-control input-md" required="">
 
                 </div>
             </div>
@@ -68,13 +68,13 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="cpf"></label>
                 <div class="col-md-4">
-                    <input id="cpf" name="cpf" type="number" placeholder="CPF" class="form-control input-md" required="">
+                    <input value="<?= $caminhoneiro['cpf'] ?>" id="cpf" name="cpf" type="number" placeholder="CPF" class="form-control input-md" required="">
                 </div>
                 <!-- Text input (cidade)-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cidade"></label>
                     <div class="col-md-4">
-                        <input id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
+                        <input value="<?= $caminhoneiro['cidade'] ?>" id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="num_antt"></label>
                     <div class="col-md-4">
-                        <input id="num_antt" name="num_antt" type="number" placeholder="Numero da A.N.T.T." class="form-control input-md" required="">
+                        <input value="<?= $caminhoneiro['num_antt'] ?>" id="num_antt" name="num_antt" type="number" placeholder="Numero da A.N.T.T." class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="num_cnh"></label>
                     <div class="col-md-4">
-                        <input id="num_cnh" name="num_cnh" type="number" placeholder="Numero do C.N.H." class="form-control input-md" required="">
+                        <input value="<?= $caminhoneiro['num_cnh'] ?>" id="num_cnh" name="num_cnh" type="number" placeholder="Numero do C.N.H." class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="categoria_cnh"></label>
                     <div class="col-md-4">
-                        <input id="categoria_cnh" name="categoria_cnh" type="text" placeholder="Categoria do C.N.H." class="form-control input-md" required="">
+                        <input value="<?= $caminhoneiro['categoria_cnh'] ?>" id="categoria_cnh" name="categoria_cnh" type="text" placeholder="Categoria do C.N.H." class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -112,18 +112,10 @@
                     <div class="col-md-8">
                         <!--<a href="cadastroC2.html" class="btn btn-success" role="button"> Prosseguir </a>-->
                         <a href="../../../index.html" class="btn btn-danger" role="button"> Cancelar   </a>
-                        <button class="btn btn-info" type="submit"> Enviar </button>
+                        <button class="btn btn-info" type="submit"> Atualizar </button>
                     </div>
-                </div>
-
-                <!-- Botão para Home -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" type="botton1"></label>
-                    <div class="col-md-8">
-                        <!--<a href="menuDeCadastros.html" class="btn btn-warning" role="button"> Voltar </a>-->
-                    </div>
-                    <!-- /Botões -->
-                </div>
+                  </div>
+               </div>
 
         </fieldset>
     </form> <!-- /Form - Fim do formulario -->

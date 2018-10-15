@@ -21,7 +21,7 @@ class Crudcaminhoneiro{
 
 
 
-    //Cadastra o usuario caminhoneiro
+    //Cadastra o usuário caminhoneiro
     public function salvar (Caminhoneiro $caminhoneiro){
 
         try {
@@ -31,48 +31,46 @@ class Crudcaminhoneiro{
             $this->conexao->exec($sql);
 
         } catch (Exception $e){
-            echo "deu um errro";
-        }
+            
+            echo "Ocorreu um erro, volte a página incial e reporte, no formulario no final da página!";
+            // header('Location: ../../index.html');
+   
+           }
 
 
     }
 
-    //Busca usuario caminhoneiro
+    //Busca o usuário caminhoneiro
     public function getCaminhoneiro (int $cod_caminhoneiro){
 
-        // Substitui o $consultausuarios por $consulta
-        return $this->conexao->query("SELECT * FROM caminhoneiro WHERE cod_caminhoneiro= $cod_caminhoneiro")->fetch();
+      return $this->conexao->query("SELECT * FROM caminhoneiro WHERE cod_caminhoneiro = $cod_caminhoneiro")->fetch();
 
-        //return new usuario($usuario['nome'], $usuario['email'], $usuario['telefone'], $usuario['senha'], $usuario['rg'], $usuario['cpf'], $usuario['cidade'], $usuario['num_cnh']);
+        //return new caminhoneiro($caminhoneiro['nome'], $caminhoneiro['email'], $caminhoneiro['telefone'], $caminhoneiro['senha'], $caminhoneiro['rg'], $caminhoneiro['cpf'], $caminhoneiro['cidade'], $caminhoneiro['num_cnh']);
     }
 
+//Daqui pra baixo eu mexi
 
+    //Edita as informações do usuário caminhoneiro
+    public function editar ($nome, $email, $telefone, $senha, $rg, $cpf, $num_cnh, $cod_cidade){
 
-//
+        $this->conexao->exec("UPDATE caminhoneiro SET nome = $nome, email = $email, telefone = $telefone, senha = $senha, rg = $rg, cpf = $cpf,  num_cnh = $num_cnh, cod_cidade = $cod_cidade WHERE caminhoneiro.cod_caminhoneiro = $id; ");
+    }
 
-//
+    //Exclui o usuário caminhoneiro
+    public function excluircaminhoneiro ($x){
 
-//
-//    //Exclui o usuario
-//    public function excluirusuario ($x){
-//
-//        $this->conexao->exec("DELETE from caminhoneiro where cod_caminhoneiro = $x");
-//}
-//
-//    //Edita as informações do usuario
-//    public function editar ($nome, $email, $telefone, $senha, $rg, $cpf, $cidade, $num_cnh){
-//
-//        $this->conexao->exec("UPDATE caminhoneiro SET nome = $nome, email = $email, telefone = $telefone, senha = $senha, rg = $rg, cpf = $cpf, cidade = $cidade,  num_cnh = $num_cnh WHERE caminhoneiro.cod_caminhoneiro = $id; ");
-//    }
+        $this->conexao->exec("DELETE from caminhoneiro where cod_caminhoneiro = $x");
+}
+
 //
 //    //login
-//    public function login ($usuario, $senha, $cod_caminheiro){
+//    public function login ($caminhoneiro, $senha, $cod_caminheiro){
 //
-//        // Substitui o $consultausuarios por $consulta
-//        $consulta->conexao->query("SELECT * FROM caminhoneiro WHERE cod_caminhoneiro = $cod_caminheiro");
-//        $usuario = $consulta->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
+//        $this->conexao->query("SELECT * FROM caminhoneiro WHERE cod_caminhoneiro = $cod_caminheiro");
+//      
+//  $caminhoneiro = $this->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
 //
-//        return new usuario($usuario['nome'], $usuario['senha'], $usuario['telefone'], $usuario['senha'], $usuario['rg'], $usuario['cpf'], $usuario['cidade'], $usuario['num_cnh']);
+//        return new caminhoneiro($caminhoneiro['nome'], $caminhoneiro['senha'], $caminhoneiro['telefone'], $caminhoneiro['senha'], $caminhoneiro['rg'], $caminhoneiro['cpf'], $caminhoneiro['num_cnh'], $caminhoneiro['cod_cidade']);
 //
 //    }
 

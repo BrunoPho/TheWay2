@@ -14,7 +14,7 @@ function index(){
     listar();
 }
 
-function listar(){
+function listar(){ //trocar todo listar por perfil
 
     $caminhoneiros = new Crudcaminhoneiro();
     $listaCaminhoneiros = $caminhoneiros->getCaminhoneiros();
@@ -24,24 +24,23 @@ function listar(){
 }
 
 function cadastro(){
+
     include __DIR__."/../views/caminhoneiro/caminhoneiro_cadastro.php";
 }
 
 function cadastrar(){
 
-    //Array ( [nome] => medicina [email] => felipepassig@hotmail.com [telefone] => 4799999886 [senha] => 123 [rg] => 123 [cpf] => 123 [cidade] => 123 [num_antt] => 123 [num_cnh] => 123 [categoria_cnh] => a )
-
     $caminhoneiro = new Caminhoneiro();
-    $caminhoneiro->nome       = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-    $caminhoneiro->email      = $_POST['email'];
-    $caminhoneiro->telefone   = $_POST['telefone'];
-    $caminhoneiro->senha      = $_POST['senha'];
-    $caminhoneiro->rg         = $_POST['rg'];
-    $caminhoneiro->cpf        = $_POST['cpf'];
-    $caminhoneiro->cod_cidade = $_POST['cidade'];
-    $caminhoneiro->num_antt   = $_POST['num_antt'];
-    $caminhoneiro->num_cnh    = $_POST['num_cnh'];
-    $caminhoneiro->categoria_cnh = $_POST['categoria_cnh'];
+    $caminhoneiro->nome          = filter_input(INPUT_POST, 'nome',          FILTER_SANITIZE_STRING);
+    $caminhoneiro->email         = filter_input(INPUT_POST, 'email',         FILTER_SANITIZE_STRING);
+    $caminhoneiro->telefone      = filter_input(INPUT_POST, 'telefone',      FILTER_SANITIZE_STRING);
+    $caminhoneiro->senha         = filter_input(INPUT_POST, 'senha',         FILTER_SANITIZE_STRING);
+    $caminhoneiro->rg            = filter_input(INPUT_POST, 'rg',            FILTER_SANITIZE_STRING);
+    $caminhoneiro->cpf           = filter_input(INPUT_POST, 'cpf',           FILTER_SANITIZE_STRING);
+    $caminhoneiro->cod_cidade    = filter_input(INPUT_POST, 'cidade',        FILTER_SANITIZE_STRING);
+    $caminhoneiro->num_antt      = filter_input(INPUT_POST, 'num_antt',      FILTER_SANITIZE_STRING);
+    $caminhoneiro->num_cnh       = filter_input(INPUT_POST, 'num_cnh',       FILTER_SANITIZE_STRING);
+    $caminhoneiro->categoria_cnh = filter_input(INPUT_POST, 'categoria_cnh', FILTER_SANITIZE_STRING);
 
     $crud_caminhoneiro = new Crudcaminhoneiro();
     $crud_caminhoneiro->salvar($caminhoneiro);
@@ -51,32 +50,36 @@ function cadastrar(){
 }
 
 function editar(){
-    //devera mostrar o formulario de editar
 
     //deve passar o ID
 
     $caminhoneiro = new Crudcaminhoneiro();
-    $caminhoneiro = $caminhoneiro->getCaminhoneiro(2);
-
+    $caminhoneiro = $caminhoneiro->getCaminhoneiro($cod_caminhonerio = cod_caminhonerio);
 
     include __DIR__."/../views/caminhoneiro/caminhoneiro_editar.php";
 
 }
 
+ //Vai salvar e substituir o que foi o formulario (Atualizar)
 function salvar_editar(){
 
 }
 
-
-
-//casos
-
-if (isset($_GET['acao']) and function_exists($_GET['acao']) ) {
+if (isset($_GET['acao']) and function_exists($_GET['acao'])) {
     call_user_func($_GET['acao']);
 
 } else {
 
     index();
     //header('Location: ../../index.php');
+
+}
+
+function excluir(){
+
+
+    include __DIR__."/../views/caminhoneiro/caminhoneiro_listar.php";
+
+    header('Location: ../../index.php');
 
 }

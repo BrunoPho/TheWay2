@@ -3,9 +3,9 @@
 class Conexao {
 
     const HOST      = "localhost";
-    const NOMEBANCO = "TheWay";
+    const NOMEBANCO = "bd_jeff_logico";
     const USUARIO   = "root";
-    const SENHA     = "root";
+    const SENHA     = "";
 
     public static $conexao = null;
 
