@@ -8,13 +8,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    <title>Hello, world!</title>
+    <title> Lista de Caminhoneiros </title>
+
 </head>
 <body>
 
     <div class="container">
 
-        <h1>lista caminhoneiros</h1>
+        <p><h1> Lista caminhoneiros </h1></p>
 
         <table class="table">
             <thead>
@@ -47,9 +48,10 @@
                 <td><?= $caminhoneiro['num_cnh'] ?></td>
                 <td><?= $caminhoneiro['categoria_cnh'] ?></td>
                 <td><?= $caminhoneiro['cod_cidade'] ?></td>
+                <td><a class="btn btn-info" href="http://localhost/TheWay2-master/app/controllers/caminhoneiro.php?acao=editar&id_caminhoneiro=<?= $caminhoneiro['cod_caminhoneiro'] ?>">editar</a></td>
             </tr>
-            <?php endforeach; ?>
 
+            <?php endforeach; ?>
 
             </tbody>
         </table>

@@ -51,9 +51,10 @@ class Crudcaminhoneiro{
 //Daqui pra baixo eu mexi
 
     //Edita as informações do usuário caminhoneiro
-    public function editar ($nome, $email, $telefone, $senha, $rg, $cpf, $num_cnh, $cod_cidade){
+    public function editar ($cod_caminhoneiro, $nome, $email, $telefone, $senha, $rg, $cpf, $num_cnh, $cod_cidade){
 
-        $this->conexao->exec("UPDATE caminhoneiro SET nome = $nome, email = $email, telefone = $telefone, senha = $senha, rg = $rg, cpf = $cpf,  num_cnh = $num_cnh, cod_cidade = $cod_cidade WHERE caminhoneiro.cod_caminhoneiro = $id; ");
+        $sql = "UPDATE caminhoneiro SET nome = '$nome', email = '$email', telefone = '$telefone', senha = '$senha', rg = '$rg', cpf = '$cpf',  num_cnh = '$num_cnh', cod_cidade = $cod_cidade WHERE cod_caminhoneiro = $cod_caminhoneiro";
+        $this->conexao->exec($sql);
     }
 
     //Exclui o usuário caminhoneiro
@@ -75,3 +76,6 @@ class Crudcaminhoneiro{
 //    }
 
 }
+
+$crud = new Crudcaminhoneiro();
+$crud->editar(5, "jfferson1643", "asjdasj@jshhsdf.com", "111", "11", "11", "11", "11", 1);

@@ -14,7 +14,7 @@ function index(){
     listar();
 }
 
-function listar(){ //trocar todo listar por perfil
+function listar(){    //todo trocar listar por perfil
 
     $caminhoneiros = new Crudcaminhoneiro();
     $listaCaminhoneiros = $caminhoneiros->getCaminhoneiros();
@@ -54,7 +54,7 @@ function editar(){
     //deve passar o ID
 
     $caminhoneiro = new Crudcaminhoneiro();
-    $caminhoneiro = $caminhoneiro->getCaminhoneiro($cod_caminhonerio = cod_caminhonerio);
+    $caminhoneiro = $caminhoneiro->getCaminhoneiro($_GET['id_caminhoneiro']);
 
     include __DIR__."/../views/caminhoneiro/caminhoneiro_editar.php";
 
@@ -62,6 +62,8 @@ function editar(){
 
  //Vai salvar e substituir o que foi o formulario (Atualizar)
 function salvar_editar(){
+    $caminhoneiro = new Crudcaminhoneiro();
+    $caminhoneiro->editar($_POST['id_caminhoneiro'], $_POST['id_caminhoneiro'], $_POST['id_caminhoneiro'], $_POST['id_caminhoneiro'], $_POST['id_caminhoneiro']);
 
 }
 
@@ -78,7 +80,8 @@ if (isset($_GET['acao']) and function_exists($_GET['acao'])) {
 function excluir(){
 
 
-    include __DIR__."/../views/caminhoneiro/caminhoneiro_listar.php";
+    $caminhoneiro = new Crudcaminhoneiro();
+    //$caminhoneiro->excluircaminhoneiro()
 
     header('Location: ../../index.php');
 

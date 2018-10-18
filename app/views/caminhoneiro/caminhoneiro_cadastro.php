@@ -16,8 +16,8 @@
 
     <h1> cadastro caminhoneiros </h1>
 
-
-    <form class="form-horizontal" method="POST" action="../../controllers/caminhoneiro.php?acao=cadastrar"><!-- Form - Inicio do formulario -->
+<!-- Form - Inicio do formulario -->
+    <form class="form-horizontal" method="POST" action="../../controllers/caminhoneiro.php?acao=cadastrar">
 
         <fieldset><!-- conjunto de campos -->
 
@@ -110,20 +110,11 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" type="botton1"></label>
                     <div class="col-md-8">
-                        <!--<a href="cadastroC2.html" class="btn btn-success" role="button"> Prosseguir </a>-->
                         <a href="../../../index.html" class="btn btn-danger" role="button"> Cancelar   </a>
                         <button class="btn btn-info" type="submit"> Enviar </button>
                     </div>
                 </div>
-
-                <!-- Botão para Home -->
-                <!--<div class="form-group">
-                    <label class="col-md-4 control-label" type="botton1"></label>
-                    <div class="col-md-8">
-                        <a href="menuDeCadastros.html" class="btn btn-warning" role="button"> Voltar </a>
-                    </div>-->
-                    <!-- /Botões -->
-                </div>
+              </div>
 
         </fieldset>
     </form> <!-- /Form - Fim do formulario -->

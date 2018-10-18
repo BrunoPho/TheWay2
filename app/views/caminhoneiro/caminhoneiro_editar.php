@@ -17,9 +17,12 @@
     <h1> Edite seus dados </h1>
 
 <!-- Form - Inicio do formulario -->
-    <form class="form-horizontal" method="POST" action="../../controllers/caminhoneiro.php?acao=salvar_editar">
+    <form class="form-horizontal" method="POST" action="../controllers/caminhoneiro.php?acao=salvar_editar">
 
         <fieldset><!-- conjunto de campos -->
+
+
+            <input type="hidden" name="id_caminhoneiro" value="<?= $_GET['id_caminhoneiro'] ?>">
 
             <!-- Text input (Nome)-->
             <div class="form-group">
