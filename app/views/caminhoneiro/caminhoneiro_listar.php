@@ -48,7 +48,8 @@
                 <td><?= $caminhoneiro['num_cnh'] ?></td>
                 <td><?= $caminhoneiro['categoria_cnh'] ?></td>
                 <td><?= $caminhoneiro['cod_cidade'] ?></td>
-                <td><a class="btn btn-info" href="http://localhost/TheWay2-master/app/controllers/caminhoneiro.php?acao=editar&id_caminhoneiro=<?= $caminhoneiro['cod_caminhoneiro'] ?>">editar</a></td>
+                <td><a class="btn btn-info"   href="http://localhost/TheWay2-master/app/controllers/caminhoneiro.php?acao=editar&id_caminhoneiro=<?= $caminhoneiro['cod_caminhoneiro'] ?>">  Editar  </a></td>
+                <td><a class="btn btn-danger" href="http://localhost/TheWay2-master/app/controllers/caminhoneiro.php?acao=excluir&id_caminhoneiro=<?= $caminhoneiro['cod_caminhoneiro'] ?>"> Excluir </a></td>
             </tr>
 
             <?php endforeach; ?>

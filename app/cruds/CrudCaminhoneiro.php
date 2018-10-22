@@ -58,9 +58,9 @@ class Crudcaminhoneiro{
     }
 
     //Exclui o usuário caminhoneiro
-    public function excluircaminhoneiro ($x){
+    public function excluircaminhoneiro ($id_caminhoneiro){
 
-        $this->conexao->exec("DELETE from caminhoneiro where cod_caminhoneiro = $x");
+        $this->conexao->exec("DELETE from caminhoneiro where cod_caminhoneiro = $id_caminhoneiro");
 }
 
 //
