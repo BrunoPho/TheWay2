@@ -44,7 +44,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="telefone"></label>
                 <div class="col-md-4">
-                    <input value="<?= $caminhoneiro['telefone'] ?>" id="telefone" name="telefone" type="tel" pattern="^\d{2}\d{4}\d{4}$" placeholder="Telefone" class="form-control input-md" required="" title="Digite seu numero de telefone (DD)XXXX-XXXX">
+                    <input value="<?= $caminhoneiro['telefone'] ?>" id="telefone" name="telefone" type="tel" pattern="^\d{2}\d{5}\d{4}$" placeholder="Telefone" class="form-control input-md" required="" title="Digite seu numero de telefone (DD)XXXX-XXXX">
                 </div>
             </div>
 
@@ -77,7 +77,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cidade"></label>
                     <div class="col-md-4">
-                        <input value="<?= $caminhoneiro['cidade'] ?>" id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
+                        <input value="<?= $caminhoneiro['cod_cidade'] ?>" id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                     <label class="col-md-4 control-label" type="botton1"></label>
                     <div class="col-md-8">
                         <!--<a href="cadastroC2.html" class="btn btn-success" role="button"> Prosseguir </a>-->
-                        <a href="../../../index.html" class="btn btn-danger" role="button"> Cancelar   </a>
+                        <a href="../../../index.html" class="btn btn-danger" role="button"> Cancelar </a>
                         <button class="btn btn-info" type="submit"> Atualizar </button>
                     </div>
                   </div>
@@ -122,14 +122,7 @@
 
         </fieldset>
     </form> <!-- /Form - Fim do formulario -->
-
-
-
-
-</div>
-<!-- /container-->
-
-
+ </div>
 
 </body>
 </html>

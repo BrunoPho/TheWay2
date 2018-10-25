@@ -12,7 +12,7 @@ class Transportadora
     public $cnpj;
     public $cod_usuario;
 
-    public function __construct( $razao_social, $cnpj, $cod_usuario){
+    public function __construct( $razao_social, $cnpj, $cod_usuario = null){
 
         $this->razao_social = $razao_social;
         $this->cnpj = $cnpj;

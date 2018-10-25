@@ -16,6 +16,7 @@ class Crudcaminhoneiro{
     public function getCaminhoneiros (){
 
         $listaCaminhoneiros = $this->conexao->query("SELECT * FROM caminhoneiro")->fetchAll();
+
         return $listaCaminhoneiros;
     }
 
@@ -76,6 +77,3 @@ class Crudcaminhoneiro{
 //    }
 
 }
-
-$crud = new Crudcaminhoneiro();
-$crud->editar(5, "jfferson1643", "asjdasj@jshhsdf.com", "111", "11", "11", "11", "11", 1);

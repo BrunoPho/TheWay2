@@ -62,8 +62,10 @@ function editar(){
 
  //Vai salvar e substituir o que foi o formulario (Atualizar)
 function salvar_editar(){
+
     $caminhoneiro = new Crudcaminhoneiro();
-    $caminhoneiro->editar($_POST['id_caminhoneiro'], $_POST['nome'], $_POST['email'], $_POST['telefone'], $_POST['senha'], $_POST['rg'], $_POST['cpf'], $_POST['num_antt'], $_POST['num_cnh'], $_POST['categoria_cnh'], $_POST['cod_cidade']);
+    $caminhoneiro->editar($_POST['id_caminhoneiro'], $_POST['nome'], $_POST['email'], $_POST['telefone'], $_POST['senha'], $_POST['rg'], $_POST['cpf'], $_POST['num_cnh'], $_POST['cod_cidade']);
+
 }
 
 if (isset($_GET['acao']) and function_exists($_GET['acao'])) {
@@ -76,12 +78,11 @@ if (isset($_GET['acao']) and function_exists($_GET['acao'])) {
 
 }
 
-function excluir($id_caminhoneiro){
+function excluir(){
 
 
     $caminhoneiro = new Crudcaminhoneiro();
-    $caminhoneiro->excluircaminhoneiro($id_caminhoneiro);
+    $caminhoneiro->excluircaminhoneiro($_GET['id_caminhoneiro']);
 
-    header('Location: ../controllers/caminhoneiro.php?acao=listar');
-
+    header('Location: ../../app/controllers/caminhoneiro.php?acao=listar.php');
 }
