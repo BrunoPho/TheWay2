@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__."/../conexao/Conexao.php";
-require_once __DIR__."/../models/transportadora.php";
+require_once __DIR__."/../models/Transportadora.php";
 
 class CrudTransportadora{
 
@@ -13,57 +13,66 @@ class CrudTransportadora{
     }
 
 
-    public function getTransportadoras (){
+    public function gettransportadoras (){
 
-        $listaTransportadoras = $this->conexao->query("SELECT * FROM transportadora")->fetchAll();
-        return $listaTransportadoras;
+        $listatransportadoras = $this->conexao->query("SELECT * FROM transportadora")->fetchAll();
+
+        return $listatransportadoras;
     }
 
 
 
+    //Cadastra o usuário transportadora
+    public function salvar (Transportadora $transportadora){
 
-//    //Cadastra o usuario caminhoneiro
-//    public function salvar (caminhoneiro $caminhoneiro){
-//        /*var_dump($caminhoneiro);*/
-//        $sql = "INSERT INTO caminhoneiro (nome, email, telefone, senha, rg, cpf, cod_cidade, num_antt, num_cnh, categoria_cnh)
-//                VALUES ('$caminhoneiro->nome', '$caminhoneiro->email', '$caminhoneiro->telefone', '$caminhoneiro->senha', '$caminhoneiro->rg', '$caminhoneiro->cpf', '$caminhoneiro->cod_cidade', '$caminhoneiro->num_antt', '$caminhoneiro->num_cnh', '$caminhoneiro->categoria_cnh')";
-//        /*$sql = 'INSERT INTO caminhoneiro (nome, email, telefone, senha, rg, cpf, num_antt, num_cnh, categoria_cnh) VALUES ('$caminhoneiro->nome', '$caminhoneiro->email', '$caminhoneiro->telefone', '$caminhoneiro->senha', '$caminhoneiro->rg', '$caminhoneiro->cpf', '$caminhoneiro->num_antt', '$caminhoneiro->num_cnh', '$caminhoneiro->categoria_cnh')';*/
-//
-//        $this->conexao->exec($sql);
-//    }
-//
-//    //Busca usuario caminhoneiro
-//    public function getusuario (int $cod_caminhoneiro){
-//
-//        // Substitui o $consultausuarios por $consulta
-//        $consulta->conexao->query("SELECT * FROM caminhoneiro WHERE cod_caminhoneiro= $cod_caminhoneiro");
-//        $usuario = $consulta->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
-//
-//        return new usuario($usuario['nome'], $usuario['email'], $usuario['telefone'], $usuario['senha'], $usuario['rg'], $usuario['cpf'], $usuario['cidade'], $usuario['num_cnh']);
-//    }
-//
+        try {
 
-//
-//    //Exclui o usuario
-//    public function excluirusuario ($x){
-//
-//        $this->conexao->exec("DELETE from caminhoneiro where cod_caminhoneiro = $x");
-//}
-//
-//    //Edita as informações do usuario
-//    public function editar ($nome, $email, $telefone, $senha, $rg, $cpf, $cidade, $num_cnh){
-//
-//        $this->conexao->exec("UPDATE caminhoneiro SET nome = $nome, email = $email, telefone = $telefone, senha = $senha, rg = $rg, cpf = $cpf, cidade = $cidade,  num_cnh = $num_cnh WHERE caminhoneiro.cod_caminhoneiro = $id; ");
-//    }
+            $sql = "INSERT INTO transportadora (nome, email, telefone, senha, razao_social, cnpj, cod_cidade)
+                VALUES ('$transportadora->nome', '$transportadora->email', '$transportadora->telefone', '$transportadora->senha', '$transportadora->razao_social', '$transportadora->cnpj', '$transportadora->cod_cidade)'";
+            $this->conexao->exec($sql);
+
+        } catch (Exception $e){
+
+            echo "Ocorreu um erro, volte a página incial e reporte, no formulario no final da página!";
+            // header('Location: ../../index.html');
+
+        }
+
+
+    }
+
+    //Busca o usuário transportadora
+    public function gettransportadora (int $cod_transportadora){
+
+        return $this->conexao->query("SELECT * FROM transportadora WHERE cod_transportadora = $cod_transportadora")->fetch();
+
+        //return new transportadora($transportadora['nome'], $transportadora['email'], $transportadora['telefone'], $transportadora['senha'], $transportadora['rg'], $transportadora['cpf'], $transportadora['cidade'], $transportadora['num_cnh']);
+    }
+
+//Daqui pra baixo eu mexi
+
+    //Edita as informações do usuário transportadora
+    public function editar ($cod_transportadora, $nome, $email, $telefone, $senha, $razao_social, $cnpj, $cod_cidade){
+
+        $sql = "UPDATE transportadora SET nome = '$nome', email = '$email', telefone = '$telefone', senha = '$senha', rg = '$rg', cpf = '$cpf',  num_cnh = '$num_cnh', cod_cidade = $cod_cidade WHERE cod_transportadora = $cod_transportadora";
+        $this->conexao->exec($sql);
+    }
+
+    //Exclui o usuário transportadora
+    public function excluirtransportadora ($id_transportadora){
+
+        $this->conexao->exec("DELETE from transportadora where cod_transportadora = $id_transportadora");
+    }
+
 //
 //    //login
-//    public function login ($usuario, $senha, $cod_caminheiro){
+//    public function login ($transportadora, $senha, $cod_caminheiro){
 //
-//        // Substitui o $consultausuarios por $consulta
-//        $consulta->conexao->query("SELECT * FROM caminhoneiro WHERE cod_caminhoneiro = $cod_caminheiro");
-//        $usuario = $consulta->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
+//        $this->conexao->query("SELECT * FROM transportadora WHERE cod_transportadora = $cod_caminheiro");
 //
-//        return new usuario($usuario['nome'], $usuario['senha'], $usuario['telefone'], $usuario['senha'], $usuario['rg'], $usuario['cpf'], $usuario['cidade'], $usuario['num_cnh']);
+//  $transportadora = $this->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
+//
+//        return new transportadora($transportadora['nome'], $transportadora['senha'], $transportadora['telefone'], $transportadora['senha'], $transportadora['rg'], $transportadora['cpf'], $transportadora['num_cnh'], $transportadora['cod_cidade']);
 //
 //    }
 

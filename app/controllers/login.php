@@ -1,10 +1,10 @@
 <?php
      session_start();
-     include('../conexao/conexao.php');
+     include('../conexao/Conexao.php');
 
-if (empty($_POST['email']) || empty($_POST['senha'])) {
+   if (empty($_POST['email']) || empty($_POST['senha'])) {
 
-    header('Location: ../../index.php');
+     header('Location: ../views/loginT.php');
 
     exit();
 }
@@ -12,7 +12,7 @@ if (empty($_POST['email']) || empty($_POST['senha'])) {
 $email = mysqli_real_escape_string($conexao, $_POST['email']);
 $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
-$query = "select caminhoneiro * from caminhoneiro where caminhoneiro = '{$email}' and senha = md5('{$senha}')";
+$query = "select caminhoneiro from caminhoneiro where caminhoneiro = '{$email}' and senha = md5('{$senha}')";
 
 $result = mysqli_query($conexao, $query);
 
@@ -26,12 +26,11 @@ if ($row == 1) {
 
     exit();
 
-} else {
+  } else {
 
     $_SESSION['nao_autenticado'] = true;
 
-    header('Location: ../../index.html');
+    header('Location: ../views/loginT.php');
 
     exit();
 }
-

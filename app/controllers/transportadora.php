@@ -16,34 +16,31 @@ function index(){
 
 function listar(){    //todo trocar listar por perfil
 
-    $caminhoneiros = new Crudcaminhoneiro();
-    $listaCaminhoneiros = $caminhoneiros->getCaminhoneiros();
+    $transportadoras = new Crudtransportadora();
+    $listatransportadoras = $transportadoras->gettransportadoras();
 
-    include __DIR__."/../views/caminhoneiro/caminhoneiro_listar.php";
+    include __DIR__."/../views/transportadora/transportadora_listar.php";
 
 }
 
 function cadastro(){
 
-    include __DIR__."/../views/caminhoneiro/caminhoneiro_cadastro.php";
+    include __DIR__."/../views/transportadora/transportadora_cadastro.php";
 }
 
 function cadastrar(){
 
-    $caminhoneiro = new Caminhoneiro();
-    $caminhoneiro->nome          = filter_input(INPUT_POST, 'nome',          FILTER_SANITIZE_STRING);
-    $caminhoneiro->email         = filter_input(INPUT_POST, 'email',         FILTER_SANITIZE_STRING);
-    $caminhoneiro->telefone      = filter_input(INPUT_POST, 'telefone',      FILTER_SANITIZE_STRING);
-    $caminhoneiro->senha         = filter_input(INPUT_POST, 'senha',         FILTER_SANITIZE_STRING);
-    $caminhoneiro->rg            = filter_input(INPUT_POST, 'rg',            FILTER_SANITIZE_STRING);
-    $caminhoneiro->cpf           = filter_input(INPUT_POST, 'cpf',           FILTER_SANITIZE_STRING);
-    $caminhoneiro->cod_cidade    = filter_input(INPUT_POST, 'cidade',        FILTER_SANITIZE_STRING);
-    $caminhoneiro->num_antt      = filter_input(INPUT_POST, 'num_antt',      FILTER_SANITIZE_STRING);
-    $caminhoneiro->num_cnh       = filter_input(INPUT_POST, 'num_cnh',       FILTER_SANITIZE_STRING);
-    $caminhoneiro->categoria_cnh = filter_input(INPUT_POST, 'categoria_cnh', FILTER_SANITIZE_STRING);
+    $transportadora = new transportadora();
+    $transportadora->nome          = filter_input(INPUT_POST, 'nome',          FILTER_SANITIZE_STRING);
+    $transportadora->email         = filter_input(INPUT_POST, 'email',         FILTER_SANITIZE_STRING);
+    $transportadora->telefone      = filter_input(INPUT_POST, 'telefone',      FILTER_SANITIZE_STRING);
+    $transportadora->senha         = filter_input(INPUT_POST, 'senha',         FILTER_SANITIZE_STRING);
+    $transportadora->rg            = filter_input(INPUT_POST, 'razo_social',   FILTER_SANITIZE_STRING);
+    $transportadora->cpf           = filter_input(INPUT_POST, 'cnpj',          FILTER_SANITIZE_STRING);
+    $transportadora->cod_cidade    = filter_input(INPUT_POST, 'cod_cidade',    FILTER_SANITIZE_STRING);
 
-    $crud_caminhoneiro = new Crudcaminhoneiro();
-    $crud_caminhoneiro->salvar($caminhoneiro);
+    $crud_transportadora = new Crudtransportadora();
+    $crud_transportadora->salvar($transportadora);
 
     listar();
 
@@ -53,18 +50,18 @@ function editar(){
 
     //deve passar o ID
 
-    $caminhoneiro = new Crudcaminhoneiro();
-    $caminhoneiro = $caminhoneiro->getCaminhoneiro($_GET['id_caminhoneiro']);
+    $transportadora = new Crudtransportadora();
+    $transportadora = $transportadora->gettransportadora($_GET['id_transportadora']);
 
-    include __DIR__."/../views/caminhoneiro/caminhoneiro_editar.php";
+    include __DIR__."/../views/transportadora/transportadora_editar.php";
 
 }
 
 //Vai salvar e substituir o que foi o formulario (Atualizar)
-function salvar_editar(){
+function salvar_editar() {
 
-    $caminhoneiro = new Crudcaminhoneiro();
-    $caminhoneiro->editar($_POST['id_caminhoneiro'], $_POST['nome'], $_POST['email'], $_POST['telefone'], $_POST['senha'], $_POST['rg'], $_POST['cpf'], $_POST['num_cnh'], $_POST['cod_cidade']);
+    $transportadora = new Crudtransportadora();
+    $transportadora->editar($_POST['id_transportadora'], $_POST['nome'], $_POST['email'], $_POST['telefone'], $_POST['senha'], $_POST['razo_social'], $_POST['cnpj'], $_POST['cod_cidade']);
 
 }
 
@@ -78,12 +75,11 @@ if (isset($_GET['acao']) and function_exists($_GET['acao'])) {
 
 }
 
-function excluir()
-{
+function excluir(){
 
 
-    $caminhoneiro = new Crudcaminhoneiro();
-    $caminhoneiro->excluircaminhoneiro($_GET['id_caminhoneiro']);
+    $transportadora = new Crudtransportadora();
+    $transportadora->excluirtransportadora($_GET['id_transportadora']);
 
-    header('Location: ../../app/controllers/caminhoneiro.php?acao=listar.php');
+    header('Location: ../../app/controllers/transportadora.php?acao=listar.php');
 }
