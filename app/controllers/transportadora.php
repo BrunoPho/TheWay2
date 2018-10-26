@@ -31,15 +31,15 @@ function cadastro(){
 function cadastrar(){
 
     $transportadora = new transportadora();
-    $transportadora->nome          = filter_input(INPUT_POST, 'nome',          FILTER_SANITIZE_STRING);
-    $transportadora->email         = filter_input(INPUT_POST, 'email',         FILTER_SANITIZE_STRING);
-    $transportadora->telefone      = filter_input(INPUT_POST, 'telefone',      FILTER_SANITIZE_STRING);
-    $transportadora->senha         = filter_input(INPUT_POST, 'senha',         FILTER_SANITIZE_STRING);
-    $transportadora->rg            = filter_input(INPUT_POST, 'razo_social',   FILTER_SANITIZE_STRING);
-    $transportadora->cpf           = filter_input(INPUT_POST, 'cnpj',          FILTER_SANITIZE_STRING);
-    $transportadora->cod_cidade    = filter_input(INPUT_POST, 'cod_cidade',    FILTER_SANITIZE_STRING);
+    $transportadora->nome              = filter_input(INPUT_POST, 'nome',              FILTER_SANITIZE_STRING);
+    $transportadora->email             = filter_input(INPUT_POST, 'email',             FILTER_SANITIZE_STRING);
+    $transportadora->telefone          = filter_input(INPUT_POST, 'telefone',          FILTER_SANITIZE_STRING);
+    $transportadora->senha             = filter_input(INPUT_POST, 'senha',             FILTER_SANITIZE_STRING);
+    $transportadora->razao_social      = filter_input(INPUT_POST, 'razo_social',       FILTER_SANITIZE_STRING);
+    $transportadora->cnpj              = filter_input(INPUT_POST, 'cnpj',              FILTER_SANITIZE_STRING);
+    $transportadora->cod_cidade        = filter_input(INPUT_POST, 'cidade_cod_cidade', FILTER_SANITIZE_STRING);
 
-    $crud_transportadora = new Crudtransportadora();
+    $crud_transportadora = new CrudTransportadora();
     $crud_transportadora->salvar($transportadora);
 
     listar();
@@ -50,8 +50,8 @@ function editar(){
 
     //deve passar o ID
 
-    $transportadora = new Crudtransportadora();
-    $transportadora = $transportadora->gettransportadora($_GET['id_transportadora']);
+    $transportadora = new CrudTransportadora();
+    $transportadora = $transportadora->getTransportadora($_GET['id_transportadora']);
 
     include __DIR__."/../views/transportadora/transportadora_editar.php";
 
@@ -60,8 +60,8 @@ function editar(){
 //Vai salvar e substituir o que foi o formulario (Atualizar)
 function salvar_editar() {
 
-    $transportadora = new Crudtransportadora();
-    $transportadora->editar($_POST['id_transportadora'], $_POST['nome'], $_POST['email'], $_POST['telefone'], $_POST['senha'], $_POST['razo_social'], $_POST['cnpj'], $_POST['cod_cidade']);
+    $transportadora = new CrudTransportadora();
+    $transportadora->editar($_POST['id_transportadora'], $_POST['nome'], $_POST['email'], $_POST['telefone'], $_POST['senha'], $_POST['razo_social'], $_POST['cnpj'], $_POST['cidade_cod_cidade']);
 
 }
 
@@ -78,7 +78,7 @@ if (isset($_GET['acao']) and function_exists($_GET['acao'])) {
 function excluir(){
 
 
-    $transportadora = new Crudtransportadora();
+    $transportadora = new CrudTransportadora();
     $transportadora->excluirtransportadora($_GET['id_transportadora']);
 
     header('Location: ../../app/controllers/transportadora.php?acao=listar.php');

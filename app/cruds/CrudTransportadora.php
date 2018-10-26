@@ -27,8 +27,9 @@ class CrudTransportadora{
 
         try {
 
-            $sql = "INSERT INTO transportadora (nome, email, telefone, senha, razao_social, cnpj, cod_cidade)
-                VALUES ('$transportadora->nome', '$transportadora->email', '$transportadora->telefone', '$transportadora->senha', '$transportadora->razao_social', '$transportadora->cnpj', '$transportadora->cod_cidade)'";
+            $sql = "INSERT INTO transportadora (nome, email, telefone, senha, razao_social, cnpj, cidade_cod_cidade)
+                VALUES ('$transportadora->nome', '$transportadora->email', '$transportadora->telefone', '$transportadora->senha', '$transportadora->razao_social', '$transportadora->cnpj', '$transportadora->cod_cidade')";
+
             $this->conexao->exec($sql);
 
         } catch (Exception $e){
@@ -42,19 +43,20 @@ class CrudTransportadora{
     }
 
     //Busca o usuário transportadora
-    public function gettransportadora (int $cod_transportadora){
+    public function getTransportadora (int $cod_transportadora){
 
         return $this->conexao->query("SELECT * FROM transportadora WHERE cod_transportadora = $cod_transportadora")->fetch();
 
-        //return new transportadora($transportadora['nome'], $transportadora['email'], $transportadora['telefone'], $transportadora['senha'], $transportadora['rg'], $transportadora['cpf'], $transportadora['cidade'], $transportadora['num_cnh']);
+        //return new transportadora($transportadora['nome'], $transportadora['email'], $transportadora['telefone'], $transportadora['senha'], $transportadora['razao_social'], $transportadora['cnpj'], $transportadora['cidade']);
     }
 
 //Daqui pra baixo eu mexi
 
     //Edita as informações do usuário transportadora
-    public function editar ($cod_transportadora, $nome, $email, $telefone, $senha, $razao_social, $cnpj, $cod_cidade){
+    public function editar ($cod_transportadora, $nome, $email, $telefone, $senha, $razao_social, $cnpj, $cidade_cod_cidade){
 
-        $sql = "UPDATE transportadora SET nome = '$nome', email = '$email', telefone = '$telefone', senha = '$senha', rg = '$rg', cpf = '$cpf',  num_cnh = '$num_cnh', cod_cidade = $cod_cidade WHERE cod_transportadora = $cod_transportadora";
+        $sql = "UPDATE transportadora SET nome = '$nome', email = '$email', telefone = '$telefone', senha = '$senha', razao_social = '$razao_social', cnpj = '$cnpj', cidade_cod_cidade = $cidade_cod_cidade WHERE cod_transportadora = $cod_transportadora";
+
         $this->conexao->exec($sql);
     }
 
@@ -72,7 +74,7 @@ class CrudTransportadora{
 //
 //  $transportadora = $this->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
 //
-//        return new transportadora($transportadora['nome'], $transportadora['senha'], $transportadora['telefone'], $transportadora['senha'], $transportadora['rg'], $transportadora['cpf'], $transportadora['num_cnh'], $transportadora['cod_cidade']);
+//        return new transportadora($transportadora['nome'], $transportadora['senha'], $transportadora['telefone'], $transportadora['senha'], $transportadora['razao_social'], $transportadora['cnpj'], $transportadora['num_cnh'], $transportadora['cidade_cod_cidade']);
 //
 //    }
 

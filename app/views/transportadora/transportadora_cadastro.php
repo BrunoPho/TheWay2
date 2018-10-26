@@ -8,16 +8,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    <title> Cadestre-se caminhoneiro </title>
+    <title> Cadestre-se transportadora </title>
 </head>
 <body>
 
 <div class="container">
 
-    <h1> Cadastro caminhoneiros </h1>
+    <h1> Cadastro transportadoras </h1>
 
-<!-- Form - Inicio do formulario -->
-    <form class="form-horizontal" method="POST" action="../../controllers/caminhoneiro.php?acao=cadastrar">
+    <!-- Form - Inicio do formulario -->
+    <form class="form-horizontal" method="POST" action="../../controllers/transportadora.php?acao=cadastrar">
 
         <fieldset><!-- conjunto de campos -->
 
@@ -55,52 +55,27 @@
             </div>
 
 
-            <!-- Text input (rg)-->
+            <!-- Text input (razao_social)-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="rg"></label>
+                <label class="col-md-4 control-label" for="razao_social"></label>
                 <div class="col-md-4">
-                    <input id="rg" name="rg" type="number" placeholder="RG" class="form-control input-md" required="">
+                    <input id="razao_social" name="razao_social" type="number" placeholder="Numero de razao social" class="form-control input-md" required="">
 
                 </div>
             </div>
 
-            <!-- Text input (cpf)-->
+            <!-- Text input (cnpj)-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="cpf"></label>
+                <label class="col-md-4 control-label" for="cnpj"></label>
                 <div class="col-md-4">
-                    <input id="cpf" name="cpf" type="number" placeholder="CPF" class="form-control input-md" required="">
+                    <input id="cnpj" name="cnpj" type="number" placeholder="cnpj" class="form-control input-md" required="">
                 </div>
+
                 <!-- Text input (cidade)-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cidade"></label>
                     <div class="col-md-4">
                         <input id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
-
-                    </div>
-                </div>
-                <!-- Text input (num_antt)-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="num_antt"></label>
-                    <div class="col-md-4">
-                        <input id="num_antt" name="num_antt" type="number" placeholder="Numero da A.N.T.T." class="form-control input-md" required="">
-
-                    </div>
-                </div>
-
-                <!-- Text input (num_cnh)-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="num_cnh"></label>
-                    <div class="col-md-4">
-                        <input id="num_cnh" name="num_cnh" type="number" placeholder="Numero do C.N.H." class="form-control input-md" required="">
-
-                    </div>
-                </div>
-
-                <!-- Text input (categoria_cnh)-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="categoria_cnh"></label>
-                    <div class="col-md-4">
-                        <input id="categoria_cnh" name="categoria_cnh" type="text" placeholder="Categoria do C.N.H." class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -114,7 +89,7 @@
                         <button class="btn btn-info" type="submit"> Enviar </button>
                     </div>
                 </div>
-              </div>
+            </div>
 
         </fieldset>
     </form> <!-- /Form - Fim do formulario -->

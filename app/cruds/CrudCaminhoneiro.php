@@ -3,7 +3,7 @@
 require_once __DIR__."/../conexao/Conexao.php";
 require_once __DIR__."/../models/Caminhoneiro.php";
 
-class Crudcaminhoneiro{
+class CrudCaminhoneiro{
 
     private $conexao;
 
@@ -29,6 +29,7 @@ class Crudcaminhoneiro{
 
             $sql = "INSERT INTO caminhoneiro (nome, email, telefone, senha, rg, cpf, num_antt, num_cnh, categoria_cnh, cod_cidade)
                 VALUES ('$caminhoneiro->nome', '$caminhoneiro->email', '$caminhoneiro->telefone', '$caminhoneiro->senha', '$caminhoneiro->rg', '$caminhoneiro->cpf', '$caminhoneiro->num_antt', '$caminhoneiro->num_cnh', '$caminhoneiro->categoria_cnh', $caminhoneiro->cod_cidade)";
+
             $this->conexao->exec($sql);
 
         } catch (Exception $e){

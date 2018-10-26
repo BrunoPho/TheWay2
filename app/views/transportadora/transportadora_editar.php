@@ -16,19 +16,19 @@
 
     <h1> Edite seus dados </h1>
 
-<!-- Form - Inicio do formulario -->
-    <form class="form-horizontal" method="POST" action="../controllers/caminhoneiro.php?acao=salvar_editar">
+    <!-- Form - Inicio do formulario -->
+    <form class="form-horizontal" method="POST" action="../controllers/transportadora.php?acao=salvar_editar">
 
         <fieldset><!-- conjunto de campos -->
 
 
-            <input type="hidden" name="id_caminhoneiro" value="<?= $_GET['id_caminhoneiro'] ?>">
+            <input type="hidden" name="id_transportadora" value="<?= $_GET['id_transportadora'] ?>">
 
             <!-- Text input (Nome)-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nome"></label>
                 <div class="col-md-4">
-                    <input value="<?= $caminhoneiro['nome'] ?>" id="nome" name="nome" type="text" placeholder="Nome" class="form-control input-md" required="" title="Preencha com seu primeiro">
+                    <input value="<?= $transportadora['nome'] ?>" id="nome" name="nome" type="text" placeholder="Nome" class="form-control input-md" required="" title="Preencha com seu primeiro">
                 </div>
             </div>
 
@@ -36,7 +36,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="email"></label>
                 <div class="col-md-4">
-                    <input value="<?= $caminhoneiro['email'] ?>" id="email" name="email" type="email" placeholder="E-mail" class="form-control input-md" required="" title="Preencha com seu G-mail ou E-mail">
+                    <input value="<?= $transportadora['email'] ?>" id="email" name="email" type="email" placeholder="E-mail" class="form-control input-md" required="" title="Preencha com seu G-mail ou E-mail">
                 </div>
             </div>
 
@@ -44,7 +44,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="telefone"></label>
                 <div class="col-md-4">
-                    <input value="<?= $caminhoneiro['telefone'] ?>" id="telefone" name="telefone" type="tel" pattern="^\d{2}\d{5}\d{4}$" placeholder="Telefone" class="form-control input-md" required="" title="Digite seu numero de telefone (DD)XXXX-XXXX">
+                    <input value="<?= $transportadora['telefone'] ?>" id="telefone" name="telefone" type="tel" pattern="^\d{2}\d{5}\d{4}$" placeholder="Telefone" class="form-control input-md" required="" title="Digite seu numero de telefone (DD)XXXX-XXXX">
                 </div>
             </div>
 
@@ -52,58 +52,33 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="senha"></label>
                 <div class="col-md-4">
-                    <input value="<?= $caminhoneiro['senha'] ?>" id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md" required="">
+                    <input value="<?= $transportadora['senha'] ?>" id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md" required="">
 
                 </div>
             </div>
 
 
-            <!-- Text input (rg)-->
+            <!-- Text input (razao_social)-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="rg"></label>
+                <label class="col-md-4 control-label" for="razao_social"></label>
                 <div class="col-md-4">
-                    <input value="<?= $caminhoneiro['rg'] ?>" id="rg" name="rg" type="number" placeholder="RG" class="form-control input-md" required="">
+                    <input value="<?= $transportadora['razao_social'] ?>" id="razao_social" name="razao_social" type="number" placeholder="Numero de razao social" class="form-control input-md" required="">
 
                 </div>
             </div>
 
-            <!-- Text input (cpf)-->
+            <!-- Text input (cnpj)-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="cpf"></label>
+                <label class="col-md-4 control-label" for="cnpj"></label>
                 <div class="col-md-4">
-                    <input value="<?= $caminhoneiro['cpf'] ?>" id="cpf" name="cpf" type="number" placeholder="CPF" class="form-control input-md" required="">
+                    <input value="<?= $transportadora['cnpj'] ?>" id="cnpj" name="cnpj" type="number" placeholder="CNPJ" class="form-control input-md" required="">
                 </div>
+
                 <!-- Text input (cidade)-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="cidade"></label>
                     <div class="col-md-4">
-                        <input value="<?= $caminhoneiro['cod_cidade'] ?>" id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
-
-                    </div>
-                </div>
-                <!-- Text input (num_antt)-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="num_antt"></label>
-                    <div class="col-md-4">
-                        <input value="<?= $caminhoneiro['num_antt'] ?>" id="num_antt" name="num_antt" type="number" placeholder="Numero da A.N.T.T." class="form-control input-md" required="">
-
-                    </div>
-                </div>
-
-                <!-- Text input (num_cnh)-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="num_cnh"></label>
-                    <div class="col-md-4">
-                        <input value="<?= $caminhoneiro['num_cnh'] ?>" id="num_cnh" name="num_cnh" type="number" placeholder="Numero do C.N.H." class="form-control input-md" required="">
-
-                    </div>
-                </div>
-
-                <!-- Text input (categoria_cnh)-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="categoria_cnh"></label>
-                    <div class="col-md-4">
-                        <input value="<?= $caminhoneiro['categoria_cnh'] ?>" id="categoria_cnh" name="categoria_cnh" type="text" placeholder="Categoria do C.N.H." class="form-control input-md" required="">
+                        <input value="<?= $transportadora['cod_cidade'] ?>" id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
 
                     </div>
                 </div>
@@ -117,12 +92,11 @@
                         <a href="../../../index.html" class="btn btn-danger" role="button"> Cancelar </a>
                         <button class="btn btn-info" type="submit"> Atualizar </button>
                     </div>
-                  </div>
-               </div>
-
+                </div>
+            </div>
         </fieldset>
     </form> <!-- /Form - Fim do formulario -->
- </div>
+</div>
 
 </body>
 </html>
