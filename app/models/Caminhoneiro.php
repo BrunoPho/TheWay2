@@ -17,9 +17,12 @@ class Caminhoneiro {
     public $num_cnh;
     public $categoria_cnh;
 
+    public function __construct(){
+
+    }
 
     //TODO APAGAR APOS TESTE
-//    public function __construct($nome, $email, $telefone, $senha, $rg, $cpf, $cidade, $num_antt, $num_cnh, $categoria_cnh, $cod_usuario = null){
+//    public function __construct($nome, $email, $telefone, $senha, $rg, $cpf, $cidade, $num_antt, $num_cnh, $categoria_cnh, $cod_usuario = null){ //colocar estado e cod_tipo_usuario
 //
 //        $this->nome          = $nome;
 //        $this->email         = $email;
@@ -33,8 +36,4 @@ class Caminhoneiro {
 //        $this->categoria_cnh = $categoria_cnh;
 //        $this->cod_usuario   = $cod_usuario;
 //    }
-
-    public function __construct(){
-
-    }
 }

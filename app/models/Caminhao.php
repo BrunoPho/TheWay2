@@ -15,4 +15,8 @@ class Caminhao
     public $cod_modelo;
     public $cod_tipo;
 
+    public function __construct(){ // Não é obrigado a passar ano_modelo e ano_fabricacao
+
+    }
+
 }
