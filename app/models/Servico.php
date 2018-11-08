@@ -21,7 +21,9 @@ class servico
     public $cod_cidade;
     public $cod_produto;
 
-    public function __construct($numero_seguro, $data_entrega, $cod_servico, $data_cadastro, $quantidade, $data_retirada, $data_retirada_prev, $data_entrega_prev, $cod_status, $cod_cidade, $cod_produto) {
+    public function __construct() {
+
+    /*public function __construct($numero_seguro, $data_entrega, $cod_servico, $data_cadastro, $quantidade, $data_retirada, $data_retirada_prev, $data_entrega_prev, $cod_status, $cod_cidade, $cod_produto) {
 
         $this->numero_seguro      = $numero_seguro;
         $this->data_entrega       = $data_entrega;
@@ -33,6 +35,6 @@ class servico
         $this->data_entrega_prev  = $data_entrega_prev;
         $this->cod_status         = $cod_status;
         $this->cod_cidade         = $cod_cidade;
-        $this->cod_produto        = $cod_produto;
-    }
+        $this->cod_produto        = $cod_produto;*/
+}
   }
