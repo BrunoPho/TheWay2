@@ -17,7 +17,7 @@ function listar(){
     $caminhoes = new Crudcaminhoneiro();
     $listaCaminhoes = $caminhoes->getCaminhoneiros();
 
-    include __DIR__."/../views/caminhao/caminhao_listar.php";
+    include __DIR__ . "/../views/Caminhao/caminhao_listar.php";
 
 }
 

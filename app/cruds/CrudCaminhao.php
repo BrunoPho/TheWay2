@@ -17,7 +17,7 @@ class CrudCaminhao
 
     public function getCaminhao() {
 
-        $listaCaminhoes = $this->conexao->query("SELECT * FROM caminhao")->fetchAll();
+        $listaCaminhoes = $this->conexao->query("SELECT * FROM Caminhao")->fetchAll();
         return $listaCaminhoes;
     }
 }

@@ -15,20 +15,20 @@ class CrudTransportadora{
 
     public function gettransportadoras (){
 
-        $listatransportadoras = $this->conexao->query("SELECT * FROM transportadora")->fetchAll();
+        $listatransportadoras = $this->conexao->query("SELECT * FROM Transportadora")->fetchAll();
 
         return $listatransportadoras;
     }
 
 
 
-    //Cadastra o usuário transportadora
+    //Cadastra o usuário Transportadora
     public function salvar (Transportadora $transportadora){
 
         try {
 
-            $sql = "INSERT INTO transportadora (nome, email, telefone, senha, razao_social, cnpj, cidade_cod_cidade)
-                VALUES ('$transportadora->nome', '$transportadora->email', '$transportadora->telefone', '$transportadora->senha', '$transportadora->razao_social', '$transportadora->cnpj', '$transportadora->cod_cidade')";
+            $sql = "INSERT INTO Transportadora (nome, email, telefone, senha, razao_social, cnpj, cidade_cod_cidade)
+                VALUES (T$transportadora->nomeransportadora, T$transportadora->emailransportadora, T$transportadora->telefoneransportadora, T$transportadora->senharansportadora, T$transportadora->razao_socialransportadora, T$transportadora->cnpjransportadora, T$transportadora->cod_cidaderansportadora)";
 
             $this->conexao->exec($sql);
 
@@ -42,39 +42,39 @@ class CrudTransportadora{
 
     }
 
-    //Busca o usuário transportadora
+    //Busca o usuário Transportadora
     public function getTransportadora (int $cod_transportadora){
 
-        return $this->conexao->query("SELECT * FROM transportadora WHERE cod_transportadora = $cod_transportadora")->fetch();
+        return $this->conexao->query("SELECT * FROM Transportadora WHERE cod_transportadora = $cod_transportadora")->fetch();
 
-        //return new transportadora($transportadora['nome'], $transportadora['email'], $transportadora['telefone'], $transportadora['senha'], $transportadora['razao_social'], $transportadora['cnpj'], $transportadora['cidade']);
+        //return new Transportadora($Transportadora['nome'], $Transportadora['email'], $Transportadora['telefone'], $Transportadora['senha'], $Transportadora['razao_social'], $Transportadora['cnpj'], $Transportadora['cidade']);
     }
 
 //Daqui pra baixo eu mexi
 
-    //Edita as informações do usuário transportadora
+    //Edita as informações do usuário Transportadora
     public function editar ($cod_transportadora, $nome, $email, $telefone, $senha, $razao_social, $cnpj, $cidade_cod_cidade){
 
-        $sql = "UPDATE transportadora SET nome = '$nome', email = '$email', telefone = '$telefone', senha = '$senha', razao_social = '$razao_social', cnpj = '$cnpj', cidade_cod_cidade = $cidade_cod_cidade WHERE cod_transportadora = $cod_transportadora";
+        $sql = "UPDATE Transportadora SET nome = '$nome', email = '$email', telefone = '$telefone', senha = '$senha', razao_social = '$razao_social', cnpj = '$cnpj', cidade_cod_cidade = $cidade_cod_cidade WHERE cod_transportadora = $cod_transportadora";
 
         $this->conexao->exec($sql);
     }
 
-    //Exclui o usuário transportadora
+    //Exclui o usuário Transportadora
     public function excluirtransportadora ($id_transportadora){
 
-        $this->conexao->exec("DELETE from transportadora where cod_transportadora = $id_transportadora");
+        $this->conexao->exec("DELETE from Transportadora where cod_transportadora = $id_transportadora");
     }
 
 //
 //    //login
-//    public function login ($transportadora, $senha, $cod_caminheiro){
+//    public function login ($Transportadora, $senha, $cod_caminheiro){
 //
-//        $this->conexao->query("SELECT * FROM transportadora WHERE cod_transportadora = $cod_caminheiro");
+//        $this->conexao->query("SELECT * FROM Transportadora WHERE cod_transportadora = $cod_caminheiro");
 //
-//  $transportadora = $this->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
+//  $Transportadora = $this->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
 //
-//        return new transportadora($transportadora['nome'], $transportadora['senha'], $transportadora['telefone'], $transportadora['senha'], $transportadora['razao_social'], $transportadora['cnpj'], $transportadora['num_cnh'], $transportadora['cidade_cod_cidade']);
+//        return new Transportadora($Transportadora['nome'], $Transportadora['senha'], $Transportadora['telefone'], $Transportadora['senha'], $Transportadora['razao_social'], $Transportadora['cnpj'], $Transportadora['num_cnh'], $Transportadora['cidade_cod_cidade']);
 //
 //    }
 

@@ -19,13 +19,13 @@ function listar(){    //todo trocar listar por perfil
     $transportadoras = new Crudtransportadora();
     $listatransportadoras = $transportadoras->gettransportadoras();
 
-    include __DIR__."/../views/transportadora/transportadora_listar.php";
+    include __DIR__ . "/../views/Transportadora/transportadora_listar.php";
 
 }
 
 function cadastro(){
 
-    include __DIR__."/../views/transportadora/transportadora_cadastro.php";
+    include __DIR__ . "/../views/Transportadora/transportadora_cadastro.php";
 }
 
 function cadastrar(){
@@ -53,7 +53,7 @@ function editar(){
     $transportadora = new CrudTransportadora();
     $transportadora = $transportadora->getTransportadora($_GET['id_transportadora']);
 
-    include __DIR__."/../views/transportadora/transportadora_editar.php";
+    include __DIR__ . "/../views/Transportadora/transportadora_editar.php";
 
 }
 
@@ -81,5 +81,5 @@ function excluir(){
     $transportadora = new CrudTransportadora();
     $transportadora->excluirtransportadora($_GET['id_transportadora']);
 
-    header('Location: ../../app/controllers/transportadora.php?acao=listar.php');
+    header('Location: ../../app/controllers/Transportadora.php?acao=listar.php');
 }

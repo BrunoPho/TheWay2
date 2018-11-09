@@ -19,13 +19,13 @@ function listar(){    //todo trocar listar por perfil
     $caminhoneiros = new Crudcaminhoneiro();
     $listaCaminhoneiros = $caminhoneiros->getCaminhoneiros();
 
-    include __DIR__."/../views/caminhoneiro/caminhoneiro_listar.php";
+    include __DIR__ . "/../views/Caminhoneiro/caminhoneiro_listar.php";
 
 }
 
 function cadastro(){
 
-    include __DIR__."/../views/caminhoneiro/caminhoneiro_cadastro.php";
+    include __DIR__ . "/../views/Caminhoneiro/caminhoneiro_cadastro.php";
 }
 
 function cadastrar(){
@@ -56,7 +56,7 @@ function editar(){
     $caminhoneiro = new Crudcaminhoneiro();
     $caminhoneiro = $caminhoneiro->getCaminhoneiro($_GET['id_caminhoneiro']);
 
-    include __DIR__."/../views/caminhoneiro/caminhoneiro_editar.php";
+    include __DIR__ . "/../views/Caminhoneiro/caminhoneiro_editar.php";
 
 }
 
@@ -84,5 +84,5 @@ function excluir(){
     $caminhoneiro = new Crudcaminhoneiro();
     $caminhoneiro->excluircaminhoneiro($_GET['id_caminhoneiro']);
 
-    header('Location: ../../app/controllers/caminhoneiro.php?acao=listar.php');
+    header('Location: ../../app/controllers/Caminhoneiro.php?acao=listar.php');
 }
